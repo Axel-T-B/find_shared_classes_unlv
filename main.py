@@ -9,7 +9,7 @@ st.subheader("""Directions:
              3. Save as a .csv file and upload the file below.
              4. Repeat until all your classes are uploaded.""")
 
-# Upload CSV files as a list of "binary file-like objects"
+# Upload CSV files as a list of binary file-like objects
 csv_files = st.file_uploader(
     "",
     type="csv",
@@ -21,11 +21,13 @@ student_dict = {}
 if csv_files:
     # Build file dictionary {file, list of names}
     file_dict = helpers.build_file_dict(csv_files)
+    if file_dict == []:
+        st.write("Warning: no content found in file")
 
     # Build student dictionary {name, list of classes}
     student_dict = helpers.build_student_dict(file_dict)
 
-st.subheader("Classmates in 2+ classes:")
+st.subheader("Here are your matches:")
 
 # Build dictionary of matches {student, list of classes}
 matches = {
