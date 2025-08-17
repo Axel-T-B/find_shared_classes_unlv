@@ -29,7 +29,7 @@ with col2:
     """
     st.markdown(pdf_display, unsafe_allow_html=True)
     st.markdown(
-        f'<a href="Classmate Finder.pdf" target="_blank">🔎 Open in New Tab</a>', unsafe_allow_html=True
+        f'<a href="https://raw.githubusercontent.com/Axel-T-B/find_shared_classes_unlv/main/Classmate%20Finder.pdf" target="_blank">🔎 Open in New Tab</a>', unsafe_allow_html=True
     )
 
 st.markdown("---")
