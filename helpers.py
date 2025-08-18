@@ -14,7 +14,10 @@ def build_file_dict(files):
 def create_names_list(file):
     """Creates a new list of just names"""
     # Convert file's binary content into text stream
-    string_io = io.StringIO(file.getvalue().decode("utf-8-sig"))
+    try:
+        string_io = io.StringIO(file.getvalue().decode("utf-8-sig"))
+    except UnicodeDecodeError:
+        string_io = io.StringIO(file.getvalue().decode("cp1252"))
 
     csv_reader = csv.reader(string_io)
     max_range = 20

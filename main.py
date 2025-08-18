@@ -29,7 +29,7 @@ with col2:
     """
     st.markdown(pdf_display, unsafe_allow_html=True)
     st.markdown(
-        f'<a href="https://raw.githubusercontent.com/Axel-T-B/find_shared_classes_unlv/main/Classmate%20Finder.pdf" target="_blank">🔎 Open in New Tab</a>', unsafe_allow_html=True
+        f'<a href="https://axel-t-b.github.io/find_shared_classes_unlv/Classmate%20Finder.pdf" target="_blank"> 🔎 Open in New Tab</a>', unsafe_allow_html=True
     )
 
 st.markdown("---")
@@ -50,8 +50,9 @@ with center:
     if csv_files:
         # Build file dictionary {file, list of names}
         file_dict = helpers.build_file_dict(csv_files)
-        if file_dict == []:
-            st.write("Warning: missing content in file")
+        for filename, content in file_dict.items():
+            if not content:
+                st.write(f"Warning: {filename} is missing content.")
 
         # Build student dictionary {name, list of classes}
         student_dict = helpers.build_student_dict(file_dict)
